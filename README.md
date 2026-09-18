@@ -17,7 +17,8 @@ npm run build    # production build
 | What | File |
 | --- | --- |
 | Studio name, email, GitHub, Play developer name | `lib/site.ts` |
-| The app list, summaries, package IDs, live/building status | `lib/apps.ts` |
+| The app list, summaries, page copy, and per-app data practices | `lib/apps.ts` |
+| Privacy policy wording | `lib/privacy.ts` |
 | Colours and font tokens | `app/globals.css` |
 | Hero headline and intro | `components/Hero.tsx` |
 | About copy | `components/About.tsx` |
@@ -26,7 +27,25 @@ Adding an app means adding one object to `apps` in `lib/apps.ts`. Give it
 `status: "live"` plus a `packageId` and it renders in the published list with a
 working Play link; give it `status: "building"` and it lands under **In
 development** with no link. The hero counts both lists, so they stay correct on
-their own.
+their own. Give it a non-empty `body` and it gets its own page at
+`/apps/<slug>` and a privacy policy at `/privacy/<slug>`, both linked
+automatically and both added to the sitemap.
+
+## Privacy policies
+
+The policies are generated from each app's `data` block in `lib/apps.ts` —
+`ads`, `billing`, `cloudProcessing`, `aiProcessing`, `onDeviceOnly`. A section
+only appears when the app actually does the thing, so an app cannot claim a
+practice it does not have, and cannot silently omit one it does.
+
+**These flags are a legal document's source of truth.** Change them only
+against the shipped app code. If an app gains an SDK, gains an account system,
+or starts retaining something, update the flag and `EFFECTIVE_DATE` in
+`lib/privacy.ts` in the same commit.
+
+Current declared position across all four: no user accounts, no analytics SDK,
+no crash reporting, nothing sold or shared beyond the advertising ID, and no
+MEBS-operated server that stores anything.
 
 ## Deploying to Vercel
 

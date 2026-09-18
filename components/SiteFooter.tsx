@@ -1,4 +1,5 @@
 import { EnvelopeSimple, GithubLogo } from "@phosphor-icons/react/dist/ssr";
+import Link from "next/link";
 import { MebsMark } from "./MebsMark";
 import { site } from "@/lib/site";
 
@@ -19,6 +20,12 @@ export function SiteFooter() {
         </div>
 
         <div className="flex flex-col gap-4">
+          <Link
+            href="/privacy"
+            className="text-paper transition-colors hover:text-ash"
+          >
+            Privacy
+          </Link>
           <a
             href={`mailto:${site.email}`}
             className="inline-flex items-center gap-3 text-paper transition-colors hover:text-ash"
