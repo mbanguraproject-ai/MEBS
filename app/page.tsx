@@ -19,7 +19,6 @@ const organisationSchema = {
     addressLocality: "Freetown",
     addressCountry: "SL",
   },
-  sameAs: [site.github],
   makesOffer: apps
     .filter((app) => app.packageId)
     .map((app) => ({

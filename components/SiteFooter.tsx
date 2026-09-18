@@ -1,4 +1,4 @@
-import { EnvelopeSimple, GithubLogo } from "@phosphor-icons/react/dist/ssr";
+import { EnvelopeSimple } from "@phosphor-icons/react/dist/ssr";
 import Link from "next/link";
 import { MebsMark } from "./MebsMark";
 import { site } from "@/lib/site";
@@ -32,15 +32,6 @@ export function SiteFooter() {
           >
             <EnvelopeSimple size={20} aria-hidden="true" />
             {site.email}
-          </a>
-          <a
-            href={site.github}
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex items-center gap-3 text-paper transition-colors hover:text-ash"
-          >
-            <GithubLogo size={20} aria-hidden="true" />
-            GitHub
           </a>
         </div>
       </div>
