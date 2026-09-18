@@ -40,8 +40,12 @@ their own.
 
 ## Assets
 
-- `public/mebs-icon.png` — the mark. Favicon, apple-touch icon, and the header
-  and footer logo.
+- `public/mebs-mark.png` — the header and footer logo. The same artwork as the
+  icon, rebuilt as white with the luminance in the alpha channel, so it blends
+  into the translucent header instead of stamping a black box. On black it
+  composites back to the original exactly.
+- `public/mebs-icon.png` — the opaque original. Favicon and apple-touch icon,
+  which render transparency unpredictably, so this one keeps its background.
 - `public/mebs-og.png` — the social preview, 1200×630, built from the brand
   banner. The source was 512×288, so it is upscaled; re-export the banner at
   1200×630 or larger and replace this file to sharpen it.
