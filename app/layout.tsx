@@ -35,10 +35,9 @@ export const metadata: Metadata = {
   },
   description,
   applicationName: site.name,
-  icons: {
-    icon: [{ url: "/mebs-icon.png", type: "image/png" }],
-    apple: [{ url: "/mebs-icon.png" }],
-  },
+  // Icons come from the file conventions in app/: favicon.ico, icon.png and
+  // apple-icon.png. Each was rendered at its own size rather than scaled from
+  // one source, so Next emits the right links without a manual icons block.
   openGraph: {
     title: `${site.name} — ${site.legalName}`,
     description,
