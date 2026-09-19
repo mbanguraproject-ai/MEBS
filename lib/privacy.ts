@@ -95,10 +95,10 @@ function whatIsHandled(app: App): PolicySection {
     });
   } else if (app.slug === "aura") {
     paragraphs.push(
-      "Aura plays media that is already on your device. With your permission it reads the media files on the phone in order to list and play them. Your library, playback positions, speed settings and everything else the app remembers are stored on the device.",
+      "Aura plays media that is already on your device. With your permission it reads the media files on the phone in order to list and play them. Your library, playback positions, speed settings and everything else the app remembers are stored on the device and are never uploaded.",
     );
     paragraphs.push(
-      "Nothing is transmitted. Aura has no account, no sync, no analytics, no advertising and no server component. It works with the device offline, permanently.",
+      "Playback itself needs no connection. The network is used for two things only: loading ads on the free tier, and confirming the purchase that removes them. Aura has no account, no sync, no analytics and no server of ours.",
     );
   } else if (app.slug === "beampad") {
     paragraphs.push(
@@ -159,9 +159,9 @@ export function buildPolicy(app: App): PolicySection[] {
       { text: "We use no analytics SDK and no crash-reporting SDK. We do not measure how you use the app." },
       { text: "We do not sell your personal information, and we do not share it for cross-context behavioural advertising beyond the advertising ID described above." },
       { text: "We do not collect your precise location, contacts, call logs, messages or microphone input." },
-      ...(app.data.onDeviceOnly
-        ? [{ text: "We operate no server that receives anything from this app." }]
-        : []),
+      ...(app.data.cloudProcessing
+        ? []
+        : [{ text: "We operate no server that receives anything from this app." }]),
     ],
   });
 

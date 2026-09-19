@@ -112,7 +112,7 @@ export const apps: App[] = [
     body: [
       "Aura plays the media on your device. No library to sign into, no catalogue to browse, no recommendations — it opens what you already have.",
       "The details are the point: it remembers where you stopped in a long audiobook or podcast, remembers the speed you listen at, has a sleep timer for playing yourself to sleep, and puts a mini player pill at the bottom with a progress ring you can swipe away.",
-      "Everything happens on the device. Aura does not need a connection and does not send your library anywhere.",
+      "Everything about your media stays on the device — no account, no sync, nothing uploaded, and playback needs no connection. The free tier loads ads over the network; a one-time purchase removes them.",
     ],
     highlights: [
       "Plays local video and audio",
@@ -120,15 +120,17 @@ export const apps: App[] = [
       "Remembered playback speed",
       "Sleep timer",
       "Mini player with progress ring and swipe gestures",
+      "One-time purchase removes ads",
     ],
     permissions: [
       { name: "Photos and media access", reason: "to find and play the media on your device" },
+      { name: "Internet", reason: "to show ads on the free tier and confirm the ad-free purchase" },
     ],
     packageId: "app.devbangs.media",
     platform: "Android",
     stack: "Kotlin, Jetpack Compose, Media3",
     status: "live",
-    data: { ads: false, billing: false, cloudProcessing: false, aiProcessing: false, onDeviceOnly: true },
+    data: { ads: true, billing: true, cloudProcessing: false, aiProcessing: false, onDeviceOnly: false },
   },
   {
     slug: "beampad",
