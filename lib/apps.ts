@@ -132,14 +132,14 @@ export const apps: App[] = [
   },
   {
     slug: "beampad",
-    name: "Beampad",
-    storeTitle: "Beampad",
+    name: "BeamPad",
+    storeTitle: "BeamPad",
     tagline: "Your phone, as the TV's keyboard.",
     summary:
       "Turns the phone into a Bluetooth keyboard and trackpad for a TV. Nothing to install on the TV, no wifi, no account.",
     body: [
-      "Typing a password on a TV with a remote is miserable. Beampad registers your phone as a Bluetooth keyboard and trackpad, so the TV treats it as an ordinary input device.",
-      "That means nothing to install on the TV, no shared wifi network, no pairing app, no account. If the TV can accept a Bluetooth keyboard, it can accept Beampad.",
+      "Typing a password on a TV with a remote is miserable. BeamPad registers your phone as a Bluetooth keyboard and trackpad, so the TV treats it as an ordinary input device.",
+      "That means nothing to install on the TV, no shared wifi network, no pairing app, no account. If the TV can accept a Bluetooth keyboard, it can accept BeamPad.",
       "Free with ads, with a one-time purchase to remove them.",
     ],
     highlights: [

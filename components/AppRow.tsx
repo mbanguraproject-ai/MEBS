@@ -28,22 +28,20 @@ export function AppRow({ app }: { app: App }) {
 
       <div className="flex items-start gap-3 md:col-span-2 md:justify-self-end">
         {live ? (
-          <span className="inline-flex items-center gap-2 rounded-full bg-ink px-4 py-2 text-sm text-paper">
+          <span className="inline-flex shrink-0 items-center gap-2 whitespace-nowrap rounded-full bg-ink px-4 py-2 text-sm text-paper">
             <GooglePlayLogo size={16} weight="fill" aria-hidden="true" />
             Google Play
           </span>
         ) : (
-          <span className="inline-flex items-center rounded-full border border-ink/25 px-4 py-2 text-sm text-graphite">
+          <span className="inline-flex shrink-0 items-center whitespace-nowrap rounded-full border border-ink/25 px-4 py-2 text-sm text-graphite">
             In development
           </span>
         )}
-        {linked ? (
-          <ArrowRight
-            size={20}
-            aria-hidden="true"
-            className="mt-2 shrink-0 text-graphite"
-          />
-        ) : null}
+        <ArrowRight
+          size={20}
+          aria-hidden="true"
+          className={`mt-2 shrink-0 text-graphite ${linked ? "" : "invisible"}`}
+        />
       </div>
     </div>
   );
