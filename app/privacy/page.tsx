@@ -20,7 +20,7 @@ export default function PrivacyIndex() {
       <PageHeader
         eyebrow={`Effective ${EFFECTIVE_DATE}`}
         title="Privacy"
-        lede="Each app gets its own policy, because each one handles different things. None of them have accounts, analytics or crash reporting."
+        lede="Each app gets its own policy, because each one handles different things. None of them use analytics or crash reporting."
       />
 
       <CurveDivider above="#000000" below="#ffffff" />
@@ -28,10 +28,11 @@ export default function PrivacyIndex() {
       <main className="bg-paper text-ink">
         <div className="mx-auto max-w-4xl px-6 pb-20">
           <p className="max-w-[66ch] text-lg leading-relaxed text-ink/80">
-            {site.legalName} operates no server that stores your data and keeps
-            no record of you. What differs between the apps is how much leaves
-            your device at all — so rather than one policy that hedges, there is
-            a policy per app that says exactly what that app does.
+            Most of {site.legalName}&apos;s apps have no accounts and no server
+            of ours, and keep no record of you. OneDevs is the exception: it is
+            a community, so it has accounts and a server, and its policy says
+            exactly what that server keeps. Rather than one policy that hedges,
+            there is a policy per app that says exactly what that app does.
           </p>
 
           <ul className="mt-12 border-t border-ink/12">
@@ -49,6 +50,7 @@ export default function PrivacyIndex() {
                       {app.data.onDeviceOnly
                         ? "Nothing leaves the device."
                         : [
+                            app.data.accounts && "Google sign-in and an account",
                             app.data.cloudProcessing && "Cloud conversions",
                             app.data.aiProcessing && "AI tools",
                             app.data.ads && "Ads on the free tier",

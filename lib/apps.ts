@@ -16,6 +16,12 @@ export type DataPractices = {
   aiProcessing: boolean;
   /** Everything the app does with user content happens on the device. */
   onDeviceOnly: boolean;
+  /**
+   * Sign-in and a MEBS server that stores account data. The generated policy
+   * cannot describe this, so an app with it has a hand-written one in
+   * lib/onedevs-legal.ts (see lib/legal.ts).
+   */
+  accounts?: boolean;
 };
 
 export type App = {
@@ -158,6 +164,37 @@ export const apps: App[] = [
     stack: "Kotlin, Bluetooth HID",
     status: "building",
     data: { ads: true, billing: true, cloudProcessing: false, aiProcessing: false, onDeviceOnly: false },
+  },
+  {
+    slug: "onedevs",
+    name: "OneDevs",
+    storeTitle: "OneDevs",
+    tagline: "Developers testing each other's apps.",
+    summary:
+      "A community where Android developers test each other's apps, earn DevCoins for every test, and reach the twelve testers Google Play asks for before production.",
+    body: [
+      "Google Play asks a new developer account for twelve testers over fourteen days before an app can go to production. OneDevs is where developers find them: list your app on the Board, and other developers install it, use it and earn DevCoins for doing so. You earn yours the same way, by testing theirs.",
+      "Missions put a small group on each other's apps every day for the full fourteen days, with the fee returned — and a share of what others forfeited — to everyone who did their part. Testers can send bug reports and suggestions straight to the developer.",
+      "The Lab reads an APK on the phone and checks it the way a Play review would: manifest, permissions, target SDK, signing, size and store listing.",
+    ],
+    highlights: [
+      "A Testing Board and a Live Apps board",
+      "DevCoins for every genuine test, measured on the device",
+      "Fourteen-day missions toward Google's twelve testers",
+      "Bug reports and suggestions from testers",
+      "The Lab: release, store-listing and device checks on an APK",
+      "Premium and Pro plans with no ads",
+    ],
+    permissions: [
+      { name: "Internet", reason: "to sign in, load the boards and missions, and show ads on the free plan" },
+      { name: "Usage access", reason: "to measure how long you used the app you are testing; only that number of seconds is sent" },
+      { name: "Notifications", reason: "for daily mission reminders and testing updates" },
+    ],
+    packageId: "com.devbangs.onedevs",
+    platform: "Android",
+    stack: "Kotlin, Jetpack Compose, Supabase",
+    status: "building",
+    data: { ads: true, billing: true, cloudProcessing: false, aiProcessing: false, onDeviceOnly: false, accounts: true },
   },
   {
     slug: "void-drifter",

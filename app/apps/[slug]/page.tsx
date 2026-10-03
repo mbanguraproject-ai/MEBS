@@ -6,6 +6,7 @@ import { CurveDivider } from "@/components/CurveDivider";
 import { PageHeader } from "@/components/PageHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { appBySlug, detailedApps, playUrl } from "@/lib/apps";
+import { type LegalKind, legalDoc, legalLabels } from "@/lib/legal";
 import { site } from "@/lib/site";
 
 type Params = { params: Promise<{ slug: string }> };
@@ -138,13 +139,26 @@ export default async function AppPage({ params }: Params) {
             </p>
           </section>
 
-          <Link
-            href={`/privacy/${app.slug}`}
-            className="mt-12 inline-flex items-center gap-2 rounded-full border border-ink/25 px-5 py-3 text-sm transition-colors hover:bg-fog"
-          >
-            <ShieldCheck size={18} aria-hidden="true" />
-            Privacy policy for {app.name}
-          </Link>
+          <div className="mt-12 flex flex-wrap gap-3">
+            <Link
+              href={`/privacy/${app.slug}`}
+              className="inline-flex items-center gap-2 rounded-full border border-ink/25 px-5 py-3 text-sm transition-colors hover:bg-fog"
+            >
+              <ShieldCheck size={18} aria-hidden="true" />
+              Privacy policy for {app.name}
+            </Link>
+            {(["terms", "refund", "delete"] as LegalKind[])
+              .filter((kind) => legalDoc(kind, app.slug))
+              .map((kind) => (
+                <Link
+                  key={kind}
+                  href={`/${kind}/${app.slug}`}
+                  className="inline-flex items-center gap-2 rounded-full border border-ink/25 px-5 py-3 text-sm transition-colors hover:bg-fog"
+                >
+                  {legalLabels[kind]}
+                </Link>
+              ))}
+          </div>
         </div>
       </main>
 

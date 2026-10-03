@@ -19,6 +19,7 @@ npm run build    # production build
 | Studio name, email, GitHub, Play developer name | `lib/site.ts` |
 | The app list, summaries, page copy, and per-app data practices | `lib/apps.ts` |
 | Privacy policy wording | `lib/privacy.ts` |
+| OneDevs privacy, terms, refund and account deletion | `lib/onedevs-legal.ts` |
 | Colours and font tokens | `app/globals.css` |
 | Hero headline and intro | `components/Hero.tsx` |
 | About copy | `components/About.tsx` |
@@ -74,3 +75,12 @@ MEBS-operated server that stores anything.
 Syne (display) and Chivo (body) are self-hosted from `app/fonts/` rather than
 fetched from Google Fonts: no third-party request at runtime, nothing to block,
 and no layout shift. Both are OFL — the licences sit beside the files.
+
+## Apps with accounts
+
+OneDevs has sign-in and a server, which the generated policies cannot
+describe, so its documents are written by hand in `lib/onedevs-legal.ts` and
+registered in `lib/legal.ts`. A registered document is served at
+`/<kind>/<slug>` — `/privacy/onedevs`, `/terms/onedevs`, `/refund/onedevs`,
+`/delete/onedevs` — and replaces the generated privacy policy for that app.
+The app's own page links to each one that exists.
